@@ -7,8 +7,8 @@ locales en Mallorca. HTML, CSS y JavaScript vanilla, sin frameworks.
 
 - `index.html` — estructura y contenido
 - `styles.css` — estilos, paleta y responsive
-- `i18n.js` — traducciones (7 idiomas) y selector de idioma
-- `script.js` — menú móvil, animaciones, validación del formulario
+- `script.js` — un único archivo JS con dos partes: las traducciones de los
+  7 idiomas (objeto `DICT`) y las interacciones (menú, animaciones, formulario)
 
 ## Uso
 
@@ -22,7 +22,7 @@ italiano, français y العربية (árabe, con diseño de derecha a izquierda
 - Selector de idioma en la barra de navegación.
 - Detecta el idioma del navegador y recuerda la elección (localStorage).
 - Para editar un texto, busca su clave `data-i18n="..."` en `index.html` y
-  cámbialo en cada idioma dentro de `i18n.js`.
+  cámbialo en cada idioma dentro del objeto `DICT` de `script.js`.
 - El contacto se atiende solo en catalán, español e inglés (aviso visible en la
   sección de contacto, traducido a cada idioma).
 
