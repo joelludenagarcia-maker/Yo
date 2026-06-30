@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ===== SEO ===== -->
+  <!-- ===== SEO (se actualiza por idioma desde i18n.js) ===== -->
   <title>Joel Ludeña García · Digitalización para negocios locales en Mallorca</title>
-  <meta name="description" content="Webs, contenido digital y presencia online para pequeños negocios de Mallorca. Trato cercano, precios adaptados y respuesta rápida. Hablemos por WhatsApp." />
+  <meta name="description" data-i18n-meta="metaDesc" content="Webs, contenido digital y presencia online para pequeños negocios de Mallorca. Trato cercano, precios adaptados y respuesta rápida. Hablemos por WhatsApp." />
   <meta name="author" content="Joel Ludeña García" />
-  <meta name="theme-color" content="#1f3a4d" />
+  <meta name="theme-color" content="#17140f" />
   <link rel="canonical" href="https://EJEMPLO-DOMINIO.com/" /> <!-- PLACEHOLDER: dominio definitivo -->
 
   <!-- ===== Open Graph (WhatsApp / redes) ===== -->
@@ -30,27 +30,44 @@
 
 <body>
   <!-- Salto de accesibilidad para teclado -->
-  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
 
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="top">
-    <nav class="nav container" aria-label="Navegación principal">
+    <nav class="nav container" aria-label="Joel Ludeña García">
       <a href="#top" class="brand">
         <!-- PLACEHOLDER: sustituir por logo cuando esté disponible -->
         <span class="brand__mark" aria-hidden="true">JL</span>
         <span class="brand__name">Joel Ludeña García</span>
       </a>
 
-      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav__right">
+        <!-- Selector de idioma -->
+        <label class="lang-switch">
+          <span class="visually-hidden" data-i18n="aria.lang">Idioma</span>
+          <svg class="lang-switch__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <select id="langSelect">
+            <option value="es">Español</option>
+            <option value="ca">Català</option>
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="it">Italiano</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+          </select>
+        </label>
+
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" data-i18n-aria="aria.menu" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
       <ul class="nav__menu" id="navMenu">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#proceso">Cómo trabajo</a></li>
-        <li><a href="#por-que">Por qué yo</a></li>
-        <li><a href="#contacto" class="nav__cta">Contacto</a></li>
+        <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+        <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#proceso" data-i18n="nav.process">Cómo trabajo</a></li>
+        <li><a href="#por-que" data-i18n="nav.why">Por qué yo</a></li>
+        <li><a href="#contacto" class="nav__cta" data-i18n="nav.contact">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -60,26 +77,26 @@
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__inner">
-        <p class="hero__eyebrow reveal">Digitalización para negocios locales · Mallorca</p>
-        <h1 class="hero__title reveal" id="hero-title">
+        <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Digitalización para negocios locales · Mallorca</p>
+        <h1 class="hero__title reveal" id="hero-title" data-i18n="hero.title">
           Llevo tu negocio a internet<br />sin complicaciones ni palabras raras.
         </h1>
-        <p class="hero__subtitle reveal">
+        <p class="hero__subtitle reveal" data-i18n="hero.subtitle">
           Webs y contenido digital pensados para comercios, restaurantes y
           profesionales de Mallorca. Trato directo, precios honestos y todo a tu medida.
         </p>
         <div class="hero__actions reveal">
           <a class="btn btn--whatsapp" href="https://wa.me/34616944451?text=Hola%20Joel%2C%20quiero%20informaci%C3%B3n%20sobre%20digitalizar%20mi%20negocio" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            Hablemos por WhatsApp
+            <span data-i18n="hero.ctaWhatsapp">Hablemos por WhatsApp</span>
           </a>
-          <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+          <a class="btn btn--ghost" href="#servicios" data-i18n="hero.ctaServices">Ver servicios</a>
         </div>
 
         <ul class="hero__trust reveal" aria-label="Datos destacados">
-          <li><strong>18</strong><span>años, nativo digital</span></li>
-          <li><strong>100%</strong><span>trato personalizado</span></li>
-          <li><strong>Esporles</strong><span>base en Mallorca</span></li>
+          <li><strong>18</strong><span data-i18n="hero.trust1">años, nativo digital</span></li>
+          <li><strong>100%</strong><span data-i18n="hero.trust2">trato personalizado</span></li>
+          <li><strong>Esporles</strong><span data-i18n="hero.trust3">base en Mallorca</span></li>
         </ul>
       </div>
 
@@ -93,22 +110,22 @@
     <section class="section about" id="sobre-mi" aria-labelledby="about-title">
       <div class="container about__grid">
         <div class="about__photo reveal">
-          <!-- Coloca la imagen en assets/joel-ludena.jpg (recomendado ~800x1000) -->
+          <!-- La imagen está en assets/joel-ludena.jpg -->
           <img class="photo-frame" src="assets/joel-ludena.jpg"
-               alt="Retrato de Joel Ludeña García"
-               width="800" height="1000" loading="lazy" />
+               alt="Retrato de Joel Ludeña García" data-i18n-alt="about.photoAlt"
+               width="1206" height="1206" loading="lazy" />
         </div>
 
         <div class="about__text reveal">
-          <p class="section__eyebrow">Sobre mí</p>
-          <h2 class="section__title" id="about-title">Soy Joel, y trabajo cada proyecto como si fuera el mío.</h2>
-          <p>
+          <p class="section__eyebrow" data-i18n="about.eyebrow">Sobre mí</p>
+          <h2 class="section__title" id="about-title" data-i18n="about.title">Soy Joel, y trabajo cada proyecto como si fuera el mío.</h2>
+          <p data-i18n="about.p1">
             Tengo 18 años y vivo en Esporles. Crecí con la tecnología en la mano, así que
             para mí lo digital no es una asignatura: es mi idioma. Eso significa que estoy al
             día de lo que funciona hoy y tengo la energía y la disponibilidad para volcarme
             en cada proyecto como si fuera el mío.
           </p>
-          <p>
+          <p data-i18n="about.p2">
             No soy una gran agencia, y precisamente esa es la ventaja: hablas siempre conmigo,
             entiendo tu negocio de cerca y te explico todo en cristiano, sin tecnicismos.
           </p>
@@ -120,9 +137,9 @@
     <section class="section services" id="servicios" aria-labelledby="services-title">
       <div class="container">
         <header class="section__head reveal">
-          <p class="section__eyebrow">Servicios</p>
-          <h2 class="section__title" id="services-title">Lo que puedo hacer por tu negocio</h2>
-          <p class="section__lead">Soluciones concretas, sin paquetes inflados. Pagas por lo que de verdad te hace falta.</p>
+          <p class="section__eyebrow" data-i18n="services.eyebrow">Servicios</p>
+          <h2 class="section__title" id="services-title" data-i18n="services.title">Lo que puedo hacer por tu negocio</h2>
+          <p class="section__lead" data-i18n="services.lead">Soluciones concretas, sin paquetes inflados. Pagas por lo que de verdad te hace falta.</p>
         </header>
 
         <ul class="cards">
@@ -130,24 +147,24 @@
             <div class="card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="7" r=".6" fill="currentColor"/><circle cx="8" cy="7" r=".6" fill="currentColor"/></svg>
             </div>
-            <h3>Webs para negocios</h3>
-            <p>Páginas rápidas, claras y a medida que dan confianza y se ven perfectas en el móvil. Listas para que te encuentren y te contacten.</p>
+            <h3 data-i18n="services.web.title">Webs para negocios</h3>
+            <p data-i18n="services.web.text">Páginas rápidas, claras y a medida que dan confianza y se ven perfectas en el móvil. Listas para que te encuentren y te contacten.</p>
           </li>
 
           <li class="card reveal">
             <div class="card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 4.5-3.5 7.5-8 9-4.5-1.5-8-4.5-8-9V7z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
             </div>
-            <h3>Asesoría en digitalización</h3>
-            <p>Te ayudo a poner orden: Google, redes, reseñas y herramientas. Un plan sencillo y realista para empezar a estar presente online.</p>
+            <h3 data-i18n="services.advice.title">Asesoría en digitalización</h3>
+            <p data-i18n="services.advice.text">Te ayudo a poner orden: Google, redes, reseñas y herramientas. Un plan sencillo y realista para empezar a estar presente online.</p>
           </li>
 
           <li class="card reveal">
             <div class="card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 18c2-5 6-8 14-8M14 7l2 3-3 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             </div>
-            <h3>Acompañamiento continuo</h3>
-            <p>No te dejo solo después de entregar. Mantengo, actualizo y resuelvo dudas para que tu presencia online no se quede anticuada.</p>
+            <h3 data-i18n="services.support.title">Acompañamiento continuo</h3>
+            <p data-i18n="services.support.text">No te dejo solo después de entregar. Mantengo, actualizo y resuelvo dudas para que tu presencia online no se quede anticuada.</p>
           </li>
         </ul>
       </div>
@@ -157,30 +174,30 @@
     <section class="section process" id="proceso" aria-labelledby="process-title">
       <div class="container">
         <header class="section__head reveal">
-          <p class="section__eyebrow">Cómo trabajo</p>
-          <h2 class="section__title" id="process-title">Cuatro pasos, cero líos</h2>
+          <p class="section__eyebrow" data-i18n="process.eyebrow">Cómo trabajo</p>
+          <h2 class="section__title" id="process-title" data-i18n="process.title">Cuatro pasos, cero líos</h2>
         </header>
 
         <ol class="steps">
           <li class="step reveal">
             <span class="step__num">01</span>
-            <h3>Contacto</h3>
-            <p>Me escribes por WhatsApp o llamas. Sin formularios eternos: empezamos por una conversación normal.</p>
+            <h3 data-i18n="process.s1.title">Contacto</h3>
+            <p data-i18n="process.s1.text">Me escribes por WhatsApp o llamas. Sin formularios eternos: empezamos por una conversación normal.</p>
           </li>
           <li class="step reveal">
             <span class="step__num">02</span>
-            <h3>Diagnóstico gratuito</h3>
-            <p>Miro tu situación actual y te digo con sinceridad qué necesitas y qué no. Sin compromiso.</p>
+            <h3 data-i18n="process.s2.title">Diagnóstico gratuito</h3>
+            <p data-i18n="process.s2.text">Miro tu situación actual y te digo con sinceridad qué necesitas y qué no. Sin compromiso.</p>
           </li>
           <li class="step reveal">
             <span class="step__num">03</span>
-            <h3>Propuesta a medida</h3>
-            <p>Te paso una propuesta clara, con precio cerrado y plazos. Tú decides con todo sobre la mesa.</p>
+            <h3 data-i18n="process.s3.title">Propuesta a medida</h3>
+            <p data-i18n="process.s3.text">Te paso una propuesta clara, con precio cerrado y plazos. Tú decides con todo sobre la mesa.</p>
           </li>
           <li class="step reveal">
             <span class="step__num">04</span>
-            <h3>Desarrollo y entrega</h3>
-            <p>Construyo, te enseño avances y entrego. Y sigo disponible para lo que surja después.</p>
+            <h3 data-i18n="process.s4.title">Desarrollo y entrega</h3>
+            <p data-i18n="process.s4.text">Construyo, te enseño avances y entrego. Y sigo disponible para lo que surja después.</p>
           </li>
         </ol>
       </div>
@@ -190,16 +207,16 @@
     <section class="section why" id="por-que" aria-labelledby="why-title">
       <div class="container why__grid">
         <div class="why__intro reveal">
-          <p class="section__eyebrow">Por qué trabajar conmigo</p>
-          <h2 class="section__title" id="why-title">Cercanía de verdad, no un número de cliente.</h2>
-          <p class="section__lead">Lo que una gran agencia no te puede dar.</p>
+          <p class="section__eyebrow" data-i18n="why.eyebrow">Por qué trabajar conmigo</p>
+          <h2 class="section__title" id="why-title" data-i18n="why.title">Cercanía de verdad, no un número de cliente.</h2>
+          <p class="section__lead" data-i18n="why.lead">Lo que una gran agencia no te puede dar.</p>
         </div>
 
         <ul class="why__list">
-          <li class="reveal"><h3>Trato directo</h3><p>Hablas conmigo de principio a fin. Nada de intermediarios ni respuestas automáticas.</p></li>
-          <li class="reveal"><h3>Precios para pequeños negocios</h3><p>Presupuestos adaptados a la realidad de un comercio local, no a la de una multinacional.</p></li>
-          <li class="reveal"><h3>Conozco el terreno</h3><p>Vivo aquí. Entiendo el tejido local de Mallorca y a quién te diriges.</p></li>
-          <li class="reveal"><h3>Respuesta rápida</h3><p>Te contesto pronto y resuelvo sin hacerte esperar días por un correo.</p></li>
+          <li class="reveal"><h3 data-i18n="why.1.title">Trato directo</h3><p data-i18n="why.1.text">Hablas conmigo de principio a fin. Nada de intermediarios ni respuestas automáticas.</p></li>
+          <li class="reveal"><h3 data-i18n="why.2.title">Precios para pequeños negocios</h3><p data-i18n="why.2.text">Presupuestos adaptados a la realidad de un comercio local, no a la de una multinacional.</p></li>
+          <li class="reveal"><h3 data-i18n="why.3.title">Conozco el terreno</h3><p data-i18n="why.3.text">Vivo aquí. Entiendo el tejido local de Mallorca y a quién te diriges.</p></li>
+          <li class="reveal"><h3 data-i18n="why.4.title">Respuesta rápida</h3><p data-i18n="why.4.text">Te contesto pronto y resuelvo sin hacerte esperar días por un correo.</p></li>
         </ul>
       </div>
     </section>
@@ -208,9 +225,14 @@
     <section class="section contact" id="contacto" aria-labelledby="contact-title">
       <div class="container contact__grid">
         <div class="contact__info reveal">
-          <p class="section__eyebrow">Contacto</p>
-          <h2 class="section__title" id="contact-title">¿Hablamos de tu negocio?</h2>
-          <p class="section__lead">El primer paso es gratis y sin compromiso. Escríbeme y vemos qué necesitas.</p>
+          <p class="section__eyebrow" data-i18n="contact.eyebrow">Contacto</p>
+          <h2 class="section__title" id="contact-title" data-i18n="contact.title">¿Hablamos de tu negocio?</h2>
+          <p class="section__lead" data-i18n="contact.lead">El primer paso es gratis y sin compromiso. Escríbeme y vemos qué necesitas.</p>
+
+          <p class="contact__langnote">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            <span data-i18n="contact.langNote">Para contactar, te atiendo en catalán, español e inglés.</span>
+          </p>
 
           <div class="contact__direct">
             <a class="btn btn--whatsapp" href="https://wa.me/34616944451?text=Hola%20Joel%2C%20quiero%20informaci%C3%B3n%20sobre%20digitalizar%20mi%20negocio" target="_blank" rel="noopener">
@@ -232,20 +254,20 @@
         <form class="contact__form reveal" id="contactForm" novalidate
               action="https://formspree.io/f/TU_ID" method="POST"> <!-- PLACEHOLDER: endpoint del formulario -->
           <div class="field">
-            <label for="nombre">Nombre</label>
+            <label for="nombre" data-i18n="form.name">Nombre</label>
             <input type="text" id="nombre" name="nombre" autocomplete="name" required />
             <span class="field__error" data-for="nombre" aria-live="polite"></span>
           </div>
           <div class="field">
-            <label for="negocio">Negocio</label>
+            <label for="negocio" data-i18n="form.business">Negocio</label>
             <input type="text" id="negocio" name="negocio" autocomplete="organization" />
           </div>
           <div class="field">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame brevemente qué necesitas…"></textarea>
+            <label for="mensaje" data-i18n="form.message">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required data-i18n-ph="form.messagePlaceholder" placeholder="Cuéntame brevemente qué necesitas…"></textarea>
             <span class="field__error" data-for="mensaje" aria-live="polite"></span>
           </div>
-          <button type="submit" class="btn btn--solid">Enviar mensaje</button>
+          <button type="submit" class="btn btn--solid" data-i18n="form.submit">Enviar mensaje</button>
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -259,7 +281,7 @@
         <span class="brand__mark" aria-hidden="true">JL</span>
         <div>
           <p class="footer__name">Joel Ludeña García</p>
-          <p class="footer__tag">Digitalización para negocios locales · Mallorca</p>
+          <p class="footer__tag" data-i18n="footer.tag">Digitalización para negocios locales · Mallorca</p>
         </div>
       </div>
 
@@ -276,15 +298,16 @@
         </a></li>
       </ul>
 
-      <p class="footer__copy">© <span id="year"></span> Joel Ludeña García. Todos los derechos reservados.</p>
+      <p class="footer__copy">© <span id="year"></span> Joel Ludeña García. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
     </div>
   </footer>
 
   <!-- Botón flotante de WhatsApp (móvil) -->
-  <a class="float-wa" href="https://wa.me/34616944451?text=Hola%20Joel%2C%20quiero%20informaci%C3%B3n%20sobre%20digitalizar%20mi%20negocio" target="_blank" rel="noopener" aria-label="Escríbeme por WhatsApp">
+  <a class="float-wa" href="https://wa.me/34616944451?text=Hola%20Joel%2C%20quiero%20informaci%C3%B3n%20sobre%20digitalizar%20mi%20negocio" target="_blank" rel="noopener" data-i18n-aria="aria.whatsapp" aria-label="Escríbeme por WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
+  <script src="i18n.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

@@ -5,17 +5,29 @@ locales en Mallorca. HTML, CSS y JavaScript vanilla, sin frameworks.
 
 ## Archivos
 
-- `index.html` — estructura y contenido (castellano)
+- `index.html` — estructura y contenido
 - `styles.css` — estilos, paleta y responsive
+- `i18n.js` — traducciones (7 idiomas) y selector de idioma
 - `script.js` — menú móvil, animaciones, validación del formulario
 
 ## Uso
 
 Abre `index.html` directamente en el navegador. No requiere build ni dependencias.
 
+## Idiomas
+
+La web está disponible en **7 idiomas**: español, català, English, Deutsch,
+italiano, français y العربية (árabe, con diseño de derecha a izquierda).
+
+- Selector de idioma en la barra de navegación.
+- Detecta el idioma del navegador y recuerda la elección (localStorage).
+- Para editar un texto, busca su clave `data-i18n="..."` en `index.html` y
+  cámbialo en cada idioma dentro de `i18n.js`.
+- El contacto se atiende solo en catalán, español e inglés (aviso visible en la
+  sección de contacto, traducido a cada idioma).
+
 ## Marcadores de posición pendientes (busca `PLACEHOLDER` en el código)
 
-- **Foto de Joel** → añade el archivo `assets/joel-ludena.jpg` (ver `assets/README.md`).
 - **Dominio / canonical / Open Graph** → `index.html` (`<head>`): sustituir
   `EJEMPLO-DOMINIO.com` y la imagen `og-image.jpg` (1200×630).
 - **Redes sociales** → footer: cambiar los `href="#"` por las URLs reales.

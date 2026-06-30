@@ -81,15 +81,20 @@
     }
   }
 
+  // Acceso a las traducciones (i18n.js); con respaldo por si no cargara.
+  function t(key, fallback) {
+    return (window.I18N && window.I18N.t) ? window.I18N.t(key) : fallback;
+  }
+
   function validate() {
     var ok = true;
     var nombre = form.elements["nombre"];
     var mensaje = form.elements["mensaje"];
 
-    if (!nombre.value.trim()) { setError(nombre, "Dime cómo te llamas."); ok = false; }
+    if (!nombre.value.trim()) { setError(nombre, t("form.errName", "Dime cómo te llamas.")); ok = false; }
     else setError(nombre, "");
 
-    if (!mensaje.value.trim()) { setError(mensaje, "Cuéntame brevemente qué necesitas."); ok = false; }
+    if (!mensaje.value.trim()) { setError(mensaje, t("form.errMessage", "Cuéntame brevemente qué necesitas.")); ok = false; }
     else setError(mensaje, "");
 
     return ok;
@@ -102,7 +107,7 @@
 
       if (!validate()) {
         if (status) {
-          status.textContent = "Revisa los campos marcados, por favor.";
+          status.textContent = t("form.errCheck", "Revisa los campos marcados, por favor.");
           status.classList.add("is-err");
         }
         return;
@@ -120,7 +125,7 @@
           ". " + form.elements["mensaje"].value.trim();
         window.open("https://wa.me/34616944451?text=" + encodeURIComponent(texto), "_blank", "noopener");
         if (status) {
-          status.textContent = "Te he abierto WhatsApp con tu mensaje listo para enviar.";
+          status.textContent = t("form.waOpened", "Te he abierto WhatsApp con tu mensaje listo para enviar.");
           status.classList.add("is-ok");
         }
         form.reset();
@@ -128,7 +133,7 @@
       }
 
       // Envío real vía fetch (p. ej. Formspree) cuando el endpoint esté configurado.
-      if (btn) { btn.disabled = true; btn.textContent = "Enviando…"; }
+      if (btn) { btn.disabled = true; btn.textContent = t("form.sending", "Enviando…"); }
 
       fetch(action, {
         method: "POST",
@@ -138,19 +143,19 @@
         .then(function (res) {
           if (res.ok) {
             form.reset();
-            if (status) { status.textContent = "¡Mensaje enviado! Te responderé lo antes posible."; status.classList.add("is-ok"); }
+            if (status) { status.textContent = t("form.sent", "¡Mensaje enviado! Te responderé lo antes posible."); status.classList.add("is-ok"); }
           } else {
             throw new Error("Respuesta no válida");
           }
         })
         .catch(function () {
           if (status) {
-            status.textContent = "No se pudo enviar. Escríbeme directamente por WhatsApp o teléfono.";
+            status.textContent = t("form.error", "No se pudo enviar. Escríbeme directamente por WhatsApp o teléfono.");
             status.classList.add("is-err");
           }
         })
         .finally(function () {
-          if (btn) { btn.disabled = false; btn.textContent = "Enviar mensaje"; }
+          if (btn) { btn.disabled = false; btn.textContent = t("form.submit", "Enviar mensaje"); }
         });
     });
 
