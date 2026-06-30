@@ -9,15 +9,21 @@
   <meta name="description" data-i18n-meta="metaDesc" content="Webs, contenido digital y presencia online para pequeños negocios de Mallorca. Trato cercano, precios adaptados y respuesta rápida. Hablemos por WhatsApp." />
   <meta name="author" content="Joel Ludeña García" />
   <meta name="theme-color" content="#17140f" />
-  <link rel="canonical" href="https://EJEMPLO-DOMINIO.com/" /> <!-- PLACEHOLDER: dominio definitivo -->
+
+  <!-- ▼▼ DOMINIO: si publicas en un dominio propio, cambia esta URL base
+       en estas 3 etiquetas (canonical, og:url y og:image). Por defecto: GitHub Pages. ▼▼ -->
+  <link rel="canonical" href="https://joelludenagarcia-maker.github.io/Yo/" />
 
   <!-- ===== Open Graph (WhatsApp / redes) ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:title" content="Joel Ludeña García · Digitalización para negocios locales" />
   <meta property="og:description" content="Webs y contenido digital para pequeños negocios de Mallorca. Cercano, rápido y a tu medida." />
-  <meta property="og:url" content="https://EJEMPLO-DOMINIO.com/" /> <!-- PLACEHOLDER -->
-  <meta property="og:image" content="https://EJEMPLO-DOMINIO.com/og-image.jpg" /> <!-- PLACEHOLDER: imagen 1200x630 para compartir -->
+  <meta property="og:url" content="https://joelludenagarcia-maker.github.io/Yo/" />
+  <meta property="og:image" content="https://joelludenagarcia-maker.github.io/Yo/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Joel Ludeña García · Digitalización para negocios locales en Mallorca" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- ===== Tipografías: Newsreader (serif) + Hanken Grotesk (sans) ===== -->
@@ -250,9 +256,19 @@
           </p>
         </div>
 
-        <!-- Formulario simple. Sin backend: configurar 'action' o usar un servicio tipo Formspree. -->
+        <!-- Formulario conectado a FormSubmit.co: envía a joeldigitalizaciones@gmail.com
+             sin necesidad de cuenta. La PRIMERA vez que alguien envíe el formulario,
+             recibirás un correo de FormSubmit para confirmar y activar el buzón (solo una vez).
+             Si prefieres otro servicio (p. ej. Formspree), cambia solo el 'action'. -->
         <form class="contact__form reveal" id="contactForm" novalidate
-              action="https://formspree.io/f/TU_ID" method="POST"> <!-- PLACEHOLDER: endpoint del formulario -->
+              action="https://formsubmit.co/ajax/joeldigitalizaciones@gmail.com" method="POST">
+          <!-- Ajustes de FormSubmit -->
+          <input type="hidden" name="_subject" value="Nuevo contacto desde la web" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- Honeypot anti-spam: debe quedar vacío (oculto a personas) -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+
           <div class="field">
             <label for="nombre" data-i18n="form.name">Nombre</label>
             <input type="text" id="nombre" name="nombre" autocomplete="name" required />

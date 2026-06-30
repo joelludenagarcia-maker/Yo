@@ -118,10 +118,16 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 .nav { display: flex; align-items: center; gap: 1.2rem; padding: .85rem 0; }
 
 .brand { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--c-ink); font-weight: 600; margin-inline-end: auto; }
+/* Monograma / sello de marca (sustituible por un logo real cuando lo haya) */
 .brand__mark {
-  display: grid; place-items: center; width: 38px; height: 38px;
-  background: var(--c-deep); color: var(--c-sand); border-radius: 10px;
-  font-family: var(--font-serif); font-size: 1.05rem; letter-spacing: .02em;
+  position: relative;
+  display: grid; place-items: center; width: 40px; height: 40px;
+  background: var(--c-deep); color: var(--c-sand); border-radius: 2px;
+  font-family: var(--font-serif); font-size: 1.02rem; font-weight: 500; letter-spacing: .06em;
+}
+.brand__mark::after {
+  content: ""; position: absolute; inset: 4px; border-radius: 1px;
+  border: 1px solid color-mix(in srgb, var(--c-gold) 60%, transparent);
 }
 .brand__name { font-family: var(--font-serif); font-size: 1.12rem; }
 

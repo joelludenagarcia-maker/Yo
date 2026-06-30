@@ -26,14 +26,30 @@ italiano, français y العربية (árabe, con diseño de derecha a izquierda
 - El contacto se atiende solo en catalán, español e inglés (aviso visible en la
   sección de contacto, traducido a cada idioma).
 
-## Marcadores de posición pendientes (busca `PLACEHOLDER` en el código)
+## Formulario de contacto
 
-- **Dominio / canonical / Open Graph** → `index.html` (`<head>`): sustituir
-  `EJEMPLO-DOMINIO.com` y la imagen `og-image.jpg` (1200×630).
+Conectado a **FormSubmit.co**, que envía los mensajes a
+`joeldigitalizaciones@gmail.com` sin necesidad de cuenta.
+
+- **Activación (solo una vez):** la primera vez que alguien envíe el formulario,
+  FormSubmit te mandará un correo para confirmar la dirección. Acéptalo y a partir
+  de ahí recibirás todos los mensajes.
+- Si el envío falla, la web invita a escribir por WhatsApp o teléfono.
+- Para cambiar de servicio (p. ej. Formspree), edita solo el `action` del `<form>`.
+
+## Dominio y vista previa al compartir (Open Graph)
+
+- Configurado con la URL de **GitHub Pages**:
+  `https://joelludenagarcia-maker.github.io/Yo/`
+- Imagen de compartir ya creada: `assets/og-image.png` (1200×630).
+- **Si usas un dominio propio:** cambia la URL base en las 3 etiquetas marcadas
+  en el `<head>` de `index.html` (`canonical`, `og:url`, `og:image`).
+
+## Pendiente (opcional)
+
 - **Redes sociales** → footer: cambiar los `href="#"` por las URLs reales.
-- **Logo** → `.brand__mark` (iniciales "JL") en header y footer.
-- **Formulario** → `action="https://formspree.io/f/TU_ID"`. Mientras no haya
-  endpoint configurado, el envío abre WhatsApp con el mensaje ya redactado.
+- **Logo** → ahora hay un monograma "JL" con sello dorado (`.brand__mark`). Si
+  tienes un logo propio, se puede sustituir ahí.
 
 ## Contacto del cliente (ya configurado)
 
