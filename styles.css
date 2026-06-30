@@ -5,27 +5,28 @@
    ========================================================= */
 
 :root {
-  /* Color */
-  --c-ink:        #1c2528;   /* texto principal, casi negro azulado */
-  --c-deep:       #1f3a4d;   /* azul Tramuntana profundo */
-  --c-deep-2:     #16303f;
-  --c-olive:      #6f7a4f;   /* verde oliva/monte (acento secundario) */
-  --c-clay:       #c2693f;   /* terracota — acento cálido / CTA secundario */
+  /* Color — estética editorial de lujo (inspiración Goyard):
+     crema cálido + negro casi puro + oro envejecido como acento. */
+  --c-ink:        #1b1813;   /* texto principal, negro cálido */
+  --c-deep:       #17140f;   /* paneles oscuros (casi negro) */
+  --c-deep-2:     #0f0d09;
+  --c-clay:       #8a6a16;   /* oro envejecido / goldenrod — acento, legible sobre crema */
+  --c-gold:       #b89030;   /* oro más vivo para detalles sobre fondo oscuro */
   --c-whatsapp:   #1d8a55;   /* verde sobrio (no el verde chillón de marca) */
-  --c-sand:       #f4efe6;   /* fondo arena claro */
-  --c-sand-2:     #ece4d5;
-  --c-paper:      #fbf8f2;   /* fondo base */
-  --c-line:       #e2d9c9;   /* bordes suaves */
-  --c-muted:      #5b6569;   /* texto secundario */
+  --c-sand:       #ece6d8;   /* crema medio para secciones alternas */
+  --c-sand-2:     #e4ddcc;
+  --c-paper:      #f4f0e7;   /* crema base */
+  --c-line:       #ddd4c1;   /* bordes suaves */
+  --c-muted:      #5a554b;   /* texto secundario */
 
   /* Tipografía */
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
   --font-sans:  "Hanken Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
-  /* Medidas */
+  /* Medidas — bordes nítidos, sensación refinada */
   --maxw: 1140px;
-  --radius: 14px;
-  --radius-sm: 9px;
+  --radius: 4px;
+  --radius-sm: 3px;
   --shadow: 0 18px 40px -24px rgba(28, 37, 40, .45);
   --shadow-sm: 0 8px 20px -14px rgba(28, 37, 40, .4);
   --ease: cubic-bezier(.22, .61, .36, 1);
@@ -69,11 +70,11 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 .section__eyebrow {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: .14em;
-  font-size: .76rem;
+  letter-spacing: .18em;
+  font-size: .74rem;
   font-weight: 600;
   color: var(--c-clay);
-  margin: 0 0 .9rem;
+  margin: 0 0 1rem;
 }
 .section__title { font-size: clamp(1.7rem, 1.2rem + 2.2vw, 2.6rem); margin: 0 0 1rem; }
 .section__lead  { color: var(--c-muted); max-width: 48ch; margin: 0; font-size: 1.08rem; }
@@ -82,8 +83,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 /* ---------- Botones ---------- */
 .btn {
   display: inline-flex; align-items: center; gap: .55rem;
-  font-family: var(--font-sans); font-weight: 600; font-size: 1rem;
-  padding: .85rem 1.4rem; border-radius: 999px; border: 1.5px solid transparent;
+  font-family: var(--font-sans); font-weight: 600; font-size: .95rem;
+  letter-spacing: .02em;
+  padding: .9rem 1.6rem; border-radius: 1px; border: 1.5px solid transparent;
   cursor: pointer; text-decoration: none; line-height: 1;
   transition: transform .25s var(--ease), box-shadow .25s var(--ease), background-color .2s, color .2s, border-color .2s;
 }
@@ -130,7 +132,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
   background: var(--c-clay); transition: width .25s var(--ease);
 }
 .nav__menu a:not(.nav__cta):hover::after { width: 100%; }
-.nav__cta { background: var(--c-deep); color: #fff !important; padding: .5rem 1rem; border-radius: 999px; }
+.nav__cta { background: var(--c-deep); color: #fff !important; padding: .55rem 1.1rem; border-radius: 1px; letter-spacing: .03em; }
 .nav__cta:hover { background: var(--c-deep-2); }
 
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 8px; }
@@ -143,17 +145,15 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 .hero {
   position: relative; overflow: hidden;
   padding: clamp(3.5rem, 2rem + 8vw, 7.5rem) 0 0;
-  background:
-    radial-gradient(120% 90% at 85% -10%, color-mix(in srgb, var(--c-deep) 14%, transparent), transparent 60%),
-    linear-gradient(180deg, var(--c-sand) 0%, var(--c-paper) 75%);
+  background: linear-gradient(180deg, var(--c-sand) 0%, var(--c-paper) 60%);
 }
 .hero__inner { position: relative; z-index: 2; padding-bottom: clamp(4rem, 2rem + 7vw, 7rem); max-width: 60ch; }
 .hero__eyebrow {
-  display: inline-block; font-weight: 600; font-size: .82rem; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--c-deep);
-  background: color-mix(in srgb, var(--c-deep) 10%, transparent);
-  padding: .4rem .85rem; border-radius: 999px; margin: 0 0 1.4rem;
+  display: inline-flex; align-items: center; gap: .7rem;
+  font-weight: 600; font-size: .78rem; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--c-ink); margin: 0 0 1.6rem;
 }
+.hero__eyebrow::before { content: ""; width: 28px; height: 1.5px; background: var(--c-clay); }
 .hero__title { font-size: clamp(2.1rem, 1.3rem + 4.4vw, 4rem); margin: 0 0 1.3rem; }
 .hero__subtitle { font-size: clamp(1.05rem, 1rem + .6vw, 1.3rem); color: var(--c-muted); margin: 0 0 2rem; max-width: 52ch; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .9rem; }
@@ -172,21 +172,14 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 /* ---------- Sobre mí ---------- */
 .about__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center; }
 .photo-frame {
-  aspect-ratio: 4 / 5; border-radius: var(--radius);
-  background: linear-gradient(160deg, var(--c-deep), var(--c-deep-2));
-  display: grid; place-items: center; color: color-mix(in srgb, #fff 65%, transparent);
-  font-style: italic; font-family: var(--font-serif); position: relative; overflow: hidden;
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
+  border-radius: var(--radius);
+  filter: grayscale(100%) contrast(1.02);
+  background: var(--c-sand);
   box-shadow: var(--shadow);
-}
-.photo-frame::after {
-  content: ""; position: absolute; inset: 0;
-  background: repeating-linear-gradient(45deg, transparent, transparent 22px, rgba(255,255,255,.03) 22px, rgba(255,255,255,.03) 24px);
+  border: 1px solid var(--c-line);
 }
 .about__text p { margin: 0 0 1.1rem; }
-.about__proof {
-  border-left: 3px solid var(--c-clay); padding: .2rem 0 .2rem 1.1rem;
-  color: var(--c-ink); background: linear-gradient(90deg, color-mix(in srgb, var(--c-clay) 7%, transparent), transparent 70%);
-}
 
 /* ---------- Servicios ---------- */
 .services { background: var(--c-sand); }

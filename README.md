@@ -15,12 +15,9 @@ Abre `index.html` directamente en el navegador. No requiere build ni dependencia
 
 ## Marcadores de posición pendientes (busca `PLACEHOLDER` en el código)
 
+- **Foto de Joel** → añade el archivo `assets/joel-ludena.jpg` (ver `assets/README.md`).
 - **Dominio / canonical / Open Graph** → `index.html` (`<head>`): sustituir
   `EJEMPLO-DOMINIO.com` y la imagen `og-image.jpg` (1200×630).
-- **Foto de Joel** → sección *Sobre mí* (`.photo-frame`): reemplazar el bloque por
-  `<img src="…" alt="Joel Ludeña García">`.
-- **Enlace a ConeixEsporles** → sección *Sobre mí*.
-- **Email** → sección *Contacto* (`mailto:EMAIL@EJEMPLO.com`).
 - **Redes sociales** → footer: cambiar los `href="#"` por las URLs reales.
 - **Logo** → `.brand__mark` (iniciales "JL") en header y footer.
 - **Formulario** → `action="https://formspree.io/f/TU_ID"`. Mientras no haya
@@ -29,10 +26,12 @@ Abre `index.html` directamente en el navegador. No requiere build ni dependencia
 ## Contacto del cliente (ya configurado)
 
 - Teléfono / WhatsApp: 616 94 44 51 (`tel:+34616944451`, `wa.me/34616944451`)
+- Email: joeldigitalizaciones@gmail.com
 - Ubicación: Esporles, Mallorca · Illes Balears
 
 ## Notas técnicas
 
+- Estética editorial inspirada en Goyard: crema + negro + oro envejecido, bordes nítidos, mucho aire.
 - Tipografías: Newsreader (serif, títulos) + Hanken Grotesk (sans, texto) vía Google Fonts.
 - Responsive mobile-first; respeta `prefers-reduced-motion`.
 - Accesibilidad: skip link, navegación por teclado, contraste cuidado, `alt`/`aria` en iconos.
