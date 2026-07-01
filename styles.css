@@ -139,17 +139,26 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 .nav__menu { display: flex; align-items: center; gap: 1.7rem; list-style: none; margin: 0; padding: 0; order: 2; }
 .nav__right { display: flex; align-items: center; gap: .6rem; order: 3; }
 
-/* Selector de vista: ordenador / móvil */
-.view-switch { display: inline-flex; border: 1px solid var(--c-line); border-radius: 2px; overflow: hidden; }
-.view-btn {
-  display: grid; place-items: center; width: 34px; height: 32px;
-  background: transparent; border: 0; padding: 0; cursor: pointer; color: var(--c-muted);
-  transition: background-color .2s, color .2s;
+/* Interruptor de vista: Móvil | Ordenador */
+.view-toggle { display: inline-flex; align-items: center; gap: .5rem; }
+.view-toggle__side {
+  background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+  font-size: .82rem; font-weight: 500; color: var(--c-muted); white-space: nowrap;
+  transition: color .2s;
 }
-.view-btn + .view-btn { border-inline-start: 1px solid var(--c-line); }
-.view-btn svg { width: 18px; height: 18px; }
-.view-btn:hover { color: var(--c-ink); }
-.view-btn[aria-pressed="true"] { background: var(--c-deep); color: #fff; }
+.view-toggle__side:hover { color: var(--c-ink); }
+.view-toggle__side[aria-current="true"] { color: var(--c-ink); font-weight: 700; }
+.view-toggle__track {
+  position: relative; flex: none; width: 44px; height: 24px; padding: 0; cursor: pointer;
+  border: 1px solid var(--c-line); border-radius: 999px; background: var(--c-sand);
+  transition: background-color .2s;
+}
+.view-toggle__knob {
+  position: absolute; top: 2px; inset-inline-start: 2px; width: 18px; height: 18px;
+  border-radius: 50%; background: var(--c-deep); transition: transform .22s var(--ease);
+}
+/* aria-checked="true" = Ordenador → botón a la derecha */
+.view-toggle__track[aria-checked="true"] .view-toggle__knob { transform: translateX(20px); }
 
 /* Selector de idioma */
 .lang-switch { display: inline-flex; align-items: center; gap: .35rem; color: var(--c-muted); }
@@ -387,6 +396,7 @@ html.view-desktop .app { min-width: 900px; }
 [lang="ar"] .section__eyebrow,
 [lang="ar"] .hero__eyebrow { letter-spacing: .04em; }
 [dir="rtl"] .float-wa { right: auto; left: 18px; }
+[dir="rtl"] .view-toggle__track[aria-checked="true"] .view-toggle__knob { transform: translateX(-20px); }
 [dir="rtl"] .lang-switch select { padding: .35rem .55rem .35rem 1.6rem; background-position: left .5rem center; }
 [dir="rtl"] .skip-link { left: auto; right: -999px; border-radius: 0 0 0 8px; }
 [dir="rtl"] .skip-link:focus { right: 0; }
