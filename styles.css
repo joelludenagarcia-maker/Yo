@@ -55,6 +55,11 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 
 .container { width: min(100% - 2.5rem, var(--maxw)); margin-inline: auto; }
 
+/* Envoltorio para el selector de vista: define el "contenedor" de referencia.
+   Por defecto ocupa el 100% → la web se adapta sola como siempre.
+   El selector Ordenador/Móvil solo cambia el ancho de este contenedor. */
+.app { container-type: inline-size; width: 100%; }
+
 .section { padding: clamp(3.5rem, 2rem + 7vw, 7rem) 0; }
 
 /* Accesibilidad: skip link */
@@ -133,6 +138,18 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 
 .nav__menu { display: flex; align-items: center; gap: 1.7rem; list-style: none; margin: 0; padding: 0; order: 2; }
 .nav__right { display: flex; align-items: center; gap: .6rem; order: 3; }
+
+/* Selector de vista: ordenador / móvil */
+.view-switch { display: inline-flex; border: 1px solid var(--c-line); border-radius: 2px; overflow: hidden; }
+.view-btn {
+  display: grid; place-items: center; width: 34px; height: 32px;
+  background: transparent; border: 0; padding: 0; cursor: pointer; color: var(--c-muted);
+  transition: background-color .2s, color .2s;
+}
+.view-btn + .view-btn { border-inline-start: 1px solid var(--c-line); }
+.view-btn svg { width: 18px; height: 18px; }
+.view-btn:hover { color: var(--c-ink); }
+.view-btn[aria-pressed="true"] { background: var(--c-deep); color: #fff; }
 
 /* Selector de idioma */
 .lang-switch { display: inline-flex; align-items: center; gap: .35rem; color: var(--c-muted); }
@@ -313,7 +330,10 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 .reveal.is-visible { opacity: 1; transform: none; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 860px) {
+/* Responsive por CONTAINER QUERY (mide el ancho de .app, no de la pantalla).
+   Así el selector Ordenador/Móvil puede forzar cada disposición en cualquier equipo,
+   y en modo automático se comporta igual que un media query normal. */
+@container (max-width: 860px) {
   .nav__toggle { display: flex; }
   .nav__menu {
     position: absolute; top: 100%; left: 0; right: 0;
@@ -337,10 +357,25 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
   .contact__grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 480px) {
+@container (max-width: 480px) {
   .hero__actions .btn { width: 100%; justify-content: center; }
+  .brand__name { display: none; } /* deja sitio a los selectores en pantallas pequeñas */
+}
+
+/* El botón flotante es fijo a la ventana (fuera del contenedor): usa media query real. */
+@media (max-width: 480px) {
   .float-wa { width: 52px; height: 52px; }
 }
+
+/* ---------- Selector de vista: modos forzados ---------- */
+/* Modo MÓVIL: muestra la web en una columna estrecha centrada (previsualización de móvil). */
+html.view-mobile { background: #cfc8ba; }
+html.view-mobile .app {
+  max-width: 430px; margin-inline: auto;
+  box-shadow: 0 0 0 1px var(--c-line), 0 30px 70px -30px rgba(0,0,0,.5);
+}
+/* Modo ORDENADOR: garantiza la disposición ancha aunque la ventana sea estrecha. */
+html.view-desktop .app { min-width: 900px; }
 
 /* ---------- Soporte RTL (árabe) ---------- */
 [lang="ar"] {

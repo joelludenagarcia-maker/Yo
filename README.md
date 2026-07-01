@@ -57,6 +57,16 @@ Conectado a **FormSubmit.co**, que envía los mensajes a
 - Email: joeldigitalizaciones@gmail.com
 - Ubicación: Esporles, Mallorca · Illes Balears
 
+## Selector de vista (Ordenador / Móvil)
+
+Junto al selector de idioma hay dos botones (🖥️ / 📱) para forzar la vista de
+ordenador o de móvil desde cualquier dispositivo; la elección se recuerda.
+
+- La web **ya es responsive** por sí sola: sin tocar nada, se adapta al tamaño
+  de cada pantalla. El selector solo permite forzar una vista concreta.
+- Está hecho con *container queries* sobre el envoltorio `.app`, así que el modo
+  móvil se puede previsualizar incluso en un ordenador (columna estrecha centrada).
+
 ## Notas técnicas
 
 - Estética editorial inspirada en Goyard: crema + negro + oro envejecido, bordes nítidos, mucho aire.

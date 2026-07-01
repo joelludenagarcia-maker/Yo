@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" id="viewportMeta" content="width=device-width, initial-scale=1.0" />
 
   <!-- ===== SEO (se actualiza por idioma desde script.js) ===== -->
   <title>Joel Ludeña García · Digitalización para negocios locales en Mallorca</title>
@@ -38,6 +38,9 @@
   <!-- Salto de accesibilidad para teclado -->
   <a class="skip-link" href="#main" data-i18n="skip">Saltar al contenido</a>
 
+  <!-- Envoltorio que actúa de "contenedor" para el selector de vista (container queries) -->
+  <div class="app" id="app">
+
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Joel Ludeña García">
@@ -48,6 +51,16 @@
       </a>
 
       <div class="nav__right">
+        <!-- Selector de vista: ordenador / móvil -->
+        <div class="view-switch" role="group" aria-label="Vista">
+          <button type="button" class="view-btn" data-view="desktop" data-i18n-aria="view.desktop" aria-label="Ver en ordenador" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6M12 16v4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <button type="button" class="view-btn" data-view="mobile" data-i18n-aria="view.mobile" aria-label="Ver en móvil" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 18h2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+        </div>
+
         <!-- Selector de idioma -->
         <label class="lang-switch">
           <span class="visually-hidden" data-i18n="aria.lang">Idioma</span>
@@ -317,6 +330,8 @@
       <p class="footer__copy">© <span id="year"></span> Joel Ludeña García. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
     </div>
   </footer>
+
+  </div><!-- /.app -->
 
   <!-- Botón flotante de WhatsApp (móvil) -->
   <a class="float-wa" href="https://wa.me/34616944451?text=Hola%20Joel%2C%20quiero%20informaci%C3%B3n%20sobre%20digitalizar%20mi%20negocio" target="_blank" rel="noopener" data-i18n-aria="aria.whatsapp" aria-label="Escríbeme por WhatsApp">

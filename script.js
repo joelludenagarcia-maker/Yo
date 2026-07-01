@@ -20,6 +20,7 @@
     es: {
       "skip": "Saltar al contenido",
       "aria.lang": "Idioma", "aria.menu": "Abrir menú", "aria.menuClose": "Cerrar menú", "aria.whatsapp": "Escríbeme por WhatsApp",
+      "view.desktop": "Ver en ordenador", "view.mobile": "Ver en móvil",
       "nav.about": "Sobre mí", "nav.services": "Servicios", "nav.process": "Cómo trabajo", "nav.why": "Por qué yo", "nav.contact": "Contacto",
       "hero.eyebrow": "Digitalización para negocios locales · Mallorca",
       "hero.title": "Llevo tu negocio a internet<br>sin complicaciones ni palabras raras.",
@@ -68,6 +69,7 @@
     ca: {
       "skip": "Vés al contingut",
       "aria.lang": "Idioma", "aria.menu": "Obre el menú", "aria.menuClose": "Tanca el menú", "aria.whatsapp": "Escriu-me per WhatsApp",
+      "view.desktop": "Veure en ordinador", "view.mobile": "Veure en mòbil",
       "nav.about": "Sobre mi", "nav.services": "Serveis", "nav.process": "Com treballo", "nav.why": "Per què jo", "nav.contact": "Contacte",
       "hero.eyebrow": "Digitalització per a negocis locals · Mallorca",
       "hero.title": "Porto el teu negoci a internet<br>sense complicacions ni paraules estranyes.",
@@ -116,6 +118,7 @@
     en: {
       "skip": "Skip to content",
       "aria.lang": "Language", "aria.menu": "Open menu", "aria.menuClose": "Close menu", "aria.whatsapp": "Message me on WhatsApp",
+      "view.desktop": "Desktop view", "view.mobile": "Mobile view",
       "nav.about": "About", "nav.services": "Services", "nav.process": "How I work", "nav.why": "Why me", "nav.contact": "Contact",
       "hero.eyebrow": "Digital solutions for local businesses · Mallorca",
       "hero.title": "I bring your business online<br>with no jargon and no fuss.",
@@ -164,6 +167,7 @@
     de: {
       "skip": "Zum Inhalt springen",
       "aria.lang": "Sprache", "aria.menu": "Menü öffnen", "aria.menuClose": "Menü schließen", "aria.whatsapp": "Schreib mir auf WhatsApp",
+      "view.desktop": "Desktop-Ansicht", "view.mobile": "Mobile Ansicht",
       "nav.about": "Über mich", "nav.services": "Leistungen", "nav.process": "So arbeite ich", "nav.why": "Warum ich", "nav.contact": "Kontakt",
       "hero.eyebrow": "Digitalisierung für lokale Unternehmen · Mallorca",
       "hero.title": "Ich bringe dein Unternehmen ins Netz –<br>ohne Fachchinesisch und ohne Stress.",
@@ -212,6 +216,7 @@
     it: {
       "skip": "Vai al contenuto",
       "aria.lang": "Lingua", "aria.menu": "Apri il menu", "aria.menuClose": "Chiudi il menu", "aria.whatsapp": "Scrivimi su WhatsApp",
+      "view.desktop": "Vista desktop", "view.mobile": "Vista mobile",
       "nav.about": "Chi sono", "nav.services": "Servizi", "nav.process": "Come lavoro", "nav.why": "Perché me", "nav.contact": "Contatto",
       "hero.eyebrow": "Digitalizzazione per attività locali · Maiorca",
       "hero.title": "Porto la tua attività online<br>senza complicazioni né paroloni.",
@@ -260,6 +265,7 @@
     fr: {
       "skip": "Aller au contenu",
       "aria.lang": "Langue", "aria.menu": "Ouvrir le menu", "aria.menuClose": "Fermer le menu", "aria.whatsapp": "Écris-moi sur WhatsApp",
+      "view.desktop": "Vue ordinateur", "view.mobile": "Vue mobile",
       "nav.about": "À propos", "nav.services": "Services", "nav.process": "Comment je travaille", "nav.why": "Pourquoi moi", "nav.contact": "Contact",
       "hero.eyebrow": "Numérisation pour les commerces locaux · Majorque",
       "hero.title": "Je mets votre activité en ligne<br>sans complications ni jargon.",
@@ -308,6 +314,7 @@
     ar: {
       "skip": "تخطَّ إلى المحتوى",
       "aria.lang": "اللغة", "aria.menu": "افتح القائمة", "aria.menuClose": "أغلق القائمة", "aria.whatsapp": "راسلني على واتساب",
+      "view.desktop": "عرض للحاسوب", "view.mobile": "عرض للجوال",
       "nav.about": "نبذة عني", "nav.services": "الخدمات", "nav.process": "طريقة عملي", "nav.why": "لماذا أنا", "nav.contact": "تواصل",
       "hero.eyebrow": "حلول رقمية للأنشطة المحلية · مايوركا",
       "hero.title": "أنقل نشاطك إلى الإنترنت<br>بلا تعقيد ولا مصطلحات غريبة.",
@@ -442,6 +449,46 @@
   /* ---------- Año dinámico en el footer ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------- Selector de vista: ordenador / móvil ----------
+     Cambia el ancho del contenedor .app (via clases) y, en móviles, el viewport,
+     para poder forzar la disposición de ordenador o de móvil en cualquier equipo.
+     La elección se recuerda en localStorage. */
+  (function () {
+    var meta = document.getElementById("viewportMeta");
+    var btns = document.querySelectorAll(".view-btn");
+    if (!btns.length) return;
+    var VP = {
+      mobile:  "width=device-width, initial-scale=1.0",
+      desktop: "width=1180",
+      auto:    "width=device-width, initial-scale=1.0"
+    };
+    function getView() {
+      try { return localStorage.getItem("view") || "auto"; } catch (e) { return "auto"; }
+    }
+    function applyView(v) {
+      var root = document.documentElement;
+      root.classList.remove("view-mobile", "view-desktop");
+      if (v === "mobile") root.classList.add("view-mobile");
+      else if (v === "desktop") root.classList.add("view-desktop");
+      if (meta) meta.setAttribute("content", VP[v] || VP.auto);
+      // Marca como activo el botón que corresponde (en "auto", según el tamaño real)
+      var eff = v === "auto"
+        ? (window.matchMedia("(min-width: 861px)").matches ? "desktop" : "mobile")
+        : v;
+      btns.forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-view") === eff));
+      });
+    }
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = this.getAttribute("data-view");
+        try { localStorage.setItem("view", v); } catch (e) {}
+        applyView(v);
+      });
+    });
+    applyView(getView());
+  })();
 
   /* ---------- Menú móvil ---------- */
   var toggle = document.getElementById("navToggle");
