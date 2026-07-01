@@ -225,7 +225,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
 /* ---------- Sobre mí ---------- */
 .about__grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center; }
 .photo-frame {
-  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
   border-radius: var(--radius);
   filter: grayscale(100%) contrast(1.02);
   background: var(--c-sand);
@@ -360,15 +360,21 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; line-height: 1.12
   .nav__cta { text-align: center; margin-top: .6rem; }
 
   .about__grid { grid-template-columns: 1fr; }
-  .about__photo { max-width: 340px; }
+  .about__photo { max-width: 300px; margin-inline: auto; } /* centrada en móvil */
+  .about__photo .photo-frame { aspect-ratio: 1 / 1; object-position: center; } /* cuadrada: encaja con la foto */
   .why__grid { grid-template-columns: 1fr; }
   .why__list { grid-template-columns: 1fr; }
   .contact__grid { grid-template-columns: 1fr; }
 }
 
+/* En pantallas pequeñas ocultamos el nombre (queda el sello "JL") para que
+   quepan bien el interruptor de vista, el idioma y el menú. */
+@container (max-width: 620px) {
+  .brand__name { display: none; }
+}
+
 @container (max-width: 480px) {
   .hero__actions .btn { width: 100%; justify-content: center; }
-  .brand__name { display: none; } /* deja sitio a los selectores en pantallas pequeñas */
 }
 
 /* El botón flotante es fijo a la ventana (fuera del contenedor): usa media query real. */
